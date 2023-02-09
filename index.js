@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import movieRoutes from "./routes/movie.router.js";
-
+import adminRoutes from "./routes/admin.router.js";
 dotenv.config();
 
 const app = express();
@@ -30,6 +30,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/movies", movieRoutes);
+app.use("/admin", adminRoutes);
 
 const PORT = 4000 || process.env.PORT;
 app.listen(PORT, () => {

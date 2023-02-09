@@ -2,11 +2,9 @@ import jwt from "jsonwebtoken";
 
 const authorize = async (req, res, next) => {
   try {
-    // console.log(req);
     const userToken = req.header("Authorization").replace("Bearer ", "");
+    console.log(userToken);
     const decodedToken = jwt.verify(userToken, process.env.SECRET);
-
-    // const decodedToken = "iamUsingSecrityWord";
     if (decodedToken) {
       next();
       return res

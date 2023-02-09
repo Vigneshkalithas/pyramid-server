@@ -18,13 +18,11 @@ const GetOneMovies = async (req, res) => {
   const { id } = req.params;
   try {
     const getOneMovie = await Movies.findById(id);
-    res
-      .status(200)
-      .send({
-        error: false,
-        message: "data sent successfully",
-        data: getOneMovie,
-      });
+    res.status(200).send({
+      error: false,
+      message: "data sent successfully",
+      data: getOneMovie,
+    });
   } catch (error) {
     res
       .status(404)
